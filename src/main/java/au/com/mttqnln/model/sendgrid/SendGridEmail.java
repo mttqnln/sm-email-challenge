@@ -1,7 +1,6 @@
 package au.com.mttqnln.model.sendgrid;
 
 import au.com.mttqnln.model.EmailRequest;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.ArrayList;
 import java.util.List;

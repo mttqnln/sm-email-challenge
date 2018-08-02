@@ -5,21 +5,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MailJetMessage {
 
   private MailJetEmailAddress From;
-  private List<MailJetEmailAddress> To;
-  private List<MailJetEmailAddress> Cc;
-  private List<MailJetEmailAddress> Bcc;
+  private List<MailJetEmailAddress> To = new ArrayList<>();
+  private List<MailJetEmailAddress> Cc = new ArrayList<>();
+  private List<MailJetEmailAddress> Bcc = new ArrayList<>();
   private String Subject;
   private String TextPart;
-
-  public MailJetMessage() {
-    this.To = new ArrayList<>();
-    this.Cc = new ArrayList<>();
-    this.Bcc = new ArrayList<>();
-  }
 
   public MailJetEmailAddress getFrom() {
     return From;
@@ -30,9 +24,6 @@ public class MailJetMessage {
   }
 
   public List<MailJetEmailAddress> getTo() {
-    if (To.size() <= 0) {
-      return null;
-    }
     return To;
   }
 
@@ -45,9 +36,6 @@ public class MailJetMessage {
   }
 
   public List<MailJetEmailAddress> getCc() {
-    if (Cc.size() <= 0) {
-      return null;
-    }
     return Cc;
   }
 
@@ -60,9 +48,6 @@ public class MailJetMessage {
   }
 
   public List<MailJetEmailAddress> getBcc() {
-    if (Bcc.size() <= 0) {
-      return null;
-    }
     return Bcc;
   }
 

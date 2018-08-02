@@ -5,24 +5,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SendGridPersonalizations {
 
-  private List<SendGridEmailAddress> to;
-  private List<SendGridEmailAddress> cc;
-  private List<SendGridEmailAddress> bcc;
+  private List<SendGridEmailAddress> to = new ArrayList<>();
+  private List<SendGridEmailAddress> cc = new ArrayList<>();
+  private List<SendGridEmailAddress> bcc = new ArrayList<>();
   private String subject;
 
-  public SendGridPersonalizations() {
-    this.to = new ArrayList<>();
-    this.cc = new ArrayList<>();
-    this.bcc = new ArrayList<>();
-  }
-
   public List<SendGridEmailAddress> getTo() {
-    if (to.size() <= 0) {
-      return null;
-    }
     return to;
   }
 
@@ -35,9 +26,6 @@ public class SendGridPersonalizations {
   }
 
   public List<SendGridEmailAddress> getCc() {
-    if (cc.size() <= 0) {
-      return null;
-    }
     return cc;
   }
 
@@ -50,9 +38,6 @@ public class SendGridPersonalizations {
   }
 
   public List<SendGridEmailAddress> getBcc() {
-    if (bcc.size() <= 0) {
-      return null;
-    }
     return bcc;
   }
 
